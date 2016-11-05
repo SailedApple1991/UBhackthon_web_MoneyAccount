@@ -26,14 +26,7 @@ define(function(require, exports, module){
         require.async( tabMap["flow"] , function( index ){
             index.init(username);
         });
-        require.async( tabMap["sublist"] , function( index ){
-            index.init();
-        });
-        require.async( tabMap["search"] , function( index ){
-            index.init();
-        });
         $('#logout').click(function () {
-            alert('!');
             // $.ajax({
             //     method: "GET",
             //     url: "./logout",

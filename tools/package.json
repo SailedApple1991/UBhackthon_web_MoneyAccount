@@ -1,7 +1,7 @@
 {
-  "name": "schecdule_web",
+  "name": "account",
   "version": "1.0.0",
-  "description": "Uflow",
+  "description": "hacking",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-uglify": "~0.1.2",
