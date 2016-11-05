@@ -29,15 +29,15 @@ var UserSchema = new mongoose.Schema({
         name: String,
     },
     profile:{
-        major:{
-            type:String,
-            default:'undefined'
-        },
+        // major:{
+        //     type:String,
+        //     default:'undefined'
+        // },
         //yearExperience:String,
-        university:String,
+        //university:String,
         username:String,
         truename: { type: String, default: '' },
-       // gender: { type: String, default: '' },
+       gender: { type: String, default: '' },
         picture: { type: String, default: '' },
         // course_taken:[{
         //     type:mongoose.Schema.Types.ObjectId,
