@@ -108,4 +108,6 @@ label > input:focus, label > select:focus {
 
     .col-submit button { width: 30%; margin: 0 auto;
     }
+    .col-submit a { width: 30%; margin: 0 auto;
+    }
 }

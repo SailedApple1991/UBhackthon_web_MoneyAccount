@@ -78,8 +78,8 @@ label > input:focus, label > select:focus {
     form {width:499px;  margin:auto;}
     .col-submit { display: block; }
     .col-2 { width: 400px; border-bottom: 1px solid #e4e4e4;}
-    .col-submit button {margin: 0 auto; }
-    .btn-sm {width:40%}
+    .col-submit button {width:40%;margin: 0 auto; }
+    .col-submit a {width:40%;margin: 0 auto; }
 }
 
 .btn-success1{
