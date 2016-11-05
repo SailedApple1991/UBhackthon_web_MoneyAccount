@@ -33,16 +33,16 @@ var UserSchema = new mongoose.Schema({
             type:String,
             default:'undefined'
         },
-        yearExperience:String,
+        //yearExperience:String,
         university:String,
         username:String,
         truename: { type: String, default: '' },
-        gender: { type: String, default: '' },
+       // gender: { type: String, default: '' },
         picture: { type: String, default: '' },
-        course_taken:[{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'under_graduate_courses'
-        }],
+        // course_taken:[{
+        //     type:mongoose.Schema.Types.ObjectId,
+        //     ref:'under_graduate_courses'
+        // }],
         tokens: Array,
     },
 
