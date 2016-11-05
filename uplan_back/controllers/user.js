@@ -150,8 +150,8 @@ exports.postSignup = (req, res, next) => {
             email: req.body.email,
             password: req.body.password,
             name: req.body.name,
-            'profile.university': req.body.uni,
-            'profile.yearExperience': req.body.YRS_EXPERIENCE,
+            //'profile.university': req.body.uni,
+            //'profile.yearExperience': req.body.YRS_EXPERIENCE,
             'profile.username': req.body.name,
 
         });
@@ -165,7 +165,7 @@ exports.postSignup = (req, res, next) => {
                 return res.json({"error":"user exist","errno":"302","data":""});
                 //return res.redirect('/signup');
             }
-            user.save(function(err) => {
+            user.save((err) => {
                 if (err) {
                     return next(err);
                 }
@@ -222,8 +222,8 @@ exports.postUpdateProfile = (req, res, next) => {
         // /user.email = req.body.email || '';
         user.profile.username = req.body.name || '';
         user.profile.gender = req.body.gender || '';
-        user.profile.university = req.body.university;
-        user.profile.yearExperience = req.body.yr_experience;
+        //user.profile.university = req.body.university;
+        //user.profile.yearExperience = req.body.yr_experience;
         user.profile.major = req.body.major;
         //user.profile.truename = req.body.firstname + req.body.lastname|| '';
         //user.profile.location = req.body.location || '';
