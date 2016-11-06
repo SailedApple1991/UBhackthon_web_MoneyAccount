@@ -16,41 +16,49 @@ var BCRYPT_SALT_LEN = 11;
  * token is used to save the token with different oAuth.
  */
 var UserSchema = new mongoose.Schema({
-    name: {
+    username: {
         unique: true,
         type:String
     },
     password: String,
     email:  { type: String, unique: true },
-//ll
-    google: {
-        id: String,
-        email: String,
-        name: String,
-    },
+    gender: { type: String, default: '' },
     profile:{
-        // major:{
-        //     type:String,
-        //     default:'undefined'
-        // },
-        // yearExperience:String,
-        // university:String,
-        username:String,
-        truename: { type: String, default: '' },
-        gender: { type: String, default: '' },
-        picture: { type: String, default: '' },
-        // course_taken:[{
-        //     type:mongoose.Schema.Types.ObjectId,
-        //     ref:'under_graduate_courses'
-        // }],
-        tokens: Array,
-    },
 
-    role:{
-        //0:normal user ; 1:verified; 2:pro user; >5 admin; >50 super admin
-        type:Number,
-        default:0
+        name:{type: String
+        },
+        bills:{event: String,
+                expense:[{Name:String,money:String}]}
     },
+//ll
+//     google: {
+//         id: String,
+//         email: String,
+//         name: String,
+//     },
+//     profile:{
+//         // major:{
+//         //     type:String,
+//         //     default:'undefined'
+//         // },
+//         // yearExperience:String,
+//         // university:String,
+//         username:String,
+//         truename: { type: String, default: '' },
+//         gender: { type: String, default: '' },
+//         picture: { type: String, default: '' },
+//         // course_taken:[{
+//         //     type:mongoose.Schema.Types.ObjectId,
+//         //     ref:'under_graduate_courses'
+//         // }],
+//         tokens: Array,
+//     },
+
+    // role:{
+    //     //0:normal user ; 1:verified; 2:pro user; >5 admin; >50 super admin
+    //     type:Number,
+    //     default:0
+    // },
     meta:{
         CreateAt:{
             type:Date,
@@ -62,7 +70,7 @@ var UserSchema = new mongoose.Schema({
         }
     }
 
-},{collection:'userinfo_test1'});
+},{collection:'hacthon_user'});
 
 /**
  * encrypt the user password
@@ -123,15 +131,15 @@ UserSchema.statics = {
  * helper method for getting user's gravatar
  * @type {any}
  */
-UserSchema.methods.gravertar=function (size) {
-    size =200;
-    if(!this.email || !this.name){
-        return 'https://gravatar.com/avatar/?s=${size}&d=retro';
-
-    }
-    const md5 = crypto.createHash('md5').update(this.email).digest('hex');
-    return 'https://gravatar.com/avatar/${md5}?s=${size}&d=retro';
-};
+// UserSchema.methods.gravertar=function (size) {
+//     size =200;
+//     if(!this.email || !this.name){
+//         return 'https://gravatar.com/avatar/?s=${size}&d=retro';
+//
+//     }
+//     const md5 = crypto.createHash('md5').update(this.email).digest('hex');
+//     return 'https://gravatar.com/avatar/${md5}?s=${size}&d=retro';
+// };
 
 var User = mongoose.model('User', UserSchema);
 

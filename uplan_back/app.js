@@ -16,7 +16,7 @@ var users = require('./routes/users');
 //var auth = require('./routes/auth');
 //var apps = require('./app/app');
 
-var courses = require('./routes/courses');
+
 var app = express();
 
 var http =require('http');
@@ -25,7 +25,7 @@ var port = process.env.PORT || 3000;
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/TestDatabase', function (err) {
+mongoose.connect('mongodb://localhost/UBhachthon', function (err) {
     if(err){
         console.log('connection fail for mongodb...');
     } else{
@@ -73,7 +73,7 @@ app.use(session({
     key : 'blog',
     cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},//30 days
     store: new mongoStore({
-        url: 'mongodb://localhost/TestDatabase',
+        url: 'mongodb://localhost/UBhachthon',
         //把session保存到mongodb的collection的sessions里
         collection: 'sessions'
     }),
@@ -121,7 +121,7 @@ app.use(function (req, res, next) {
 });
 
 //app.use('/', users);
-app.use('/get_courses_info',courses);
+
 app.use('/', routes);
 //app.use('/get_courses_info',courses);
 // app.use('/auth',auth);

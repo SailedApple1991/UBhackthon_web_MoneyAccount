@@ -106,6 +106,8 @@ label > input:focus, label > select:focus {
     .col-3 { width: 399.3px;}
     .col-4 { width: 299.2px; }
 
-    .col-submit button { width: 30%; margin: 0 auto;
-    }
+    .col-submit button { width: 30%; margin: 0 auto;}
+
+    .col-submit a { width: 30%; margin: 0 auto;}
+
 }

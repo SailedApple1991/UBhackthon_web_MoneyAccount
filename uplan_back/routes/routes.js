@@ -36,7 +36,7 @@ router.post('/signup',userController.postSignup);
 
 router.get('/logout',userController.signout);
 
-router.get('/account/profile',userController.getAccount);
+router.get('/account/profile',userController.getbills);
 router.post('/account/profile', userController.postUpdateProfile);
 
 

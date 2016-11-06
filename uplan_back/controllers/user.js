@@ -9,6 +9,7 @@ var passportConfig = require('../config/passport');
 var crypto = require('crypto');
 var async = require('async');
 var session = require('express-session');
+var billing = require('../models/billing');
 //sign up
 /**
  * GET /signup
@@ -149,10 +150,11 @@ exports.postSignup = (req, res, next) => {
         const user = new User({
             email: req.body.email,
             password: req.body.password,
-            name: req.body.name,
+            username: req.body.name,
             //'profile.university': req.body.uni,
             //'profile.yearExperience': req.body.YRS_EXPERIENCE,
-            'profile.username': req.body.name,
+            gender:req.body.gender,
+            'profile.name': req.body.name,
 
         });
 
@@ -178,7 +180,7 @@ exports.postSignup = (req, res, next) => {
                     //res.redirect('/');
                     var id = req.sessionID
 
-                    res.json({"error":"","errno":"0","data":id});
+                    res.json({"error":"","errno":"0","data":user});
                 });
             });
         });
@@ -215,20 +217,34 @@ exports.postUpdateProfile = (req, res, next) => {
     //     req.flash('errors', errors);
     //     return res.redirect('/account');
     // }
-    passportConfig.isAuthorized();
-    User.findById(req.user.id, (err, user) => {
+    console.log(req.body.expense);
+    //passportConfig.isAuthorized();
+    User.findOne({username:req.body.name}, (err, user) => {
         if (err) { return next(err); }
         //dont need to change email now
         // /user.email = req.body.email || '';
-        user.profile.username = req.body.name || '';
-        user.profile.gender = req.body.gender || '';
+
+        user.profile.name = req.body.name || '';
+        //user.profile.gender = req.body.gender || '';
         //user.profile.university = req.body.university;
         //user.profile.yearExperience = req.body.yr_experience;
-        user.profile.major = req.body.major;
+        //user.profile.major = req.body.major;
+        user.profile.event= req.body.event;
+        console.log(req.body.expense.length);
+        var expense = req.body.expense;
+        for(var i = 0;i<expense.length;i++){
+            var temp = user.profile.bills.expense
+            console.log(expense[i].Name)
+            temp1 = {'Name':'','money':''};
+            temp1.Name = expense[i].Name;
+            temp1.money = expense[i].money;
+            temp.push(temp1)
+        }
+
         //user.profile.truename = req.body.firstname + req.body.lastname|| '';
         //user.profile.location = req.body.location || '';
         //user.profile.website = req.body.website || '';
-        user.save((err) => {
+        user.update({'_id':user._id},{profile: true},function(err) {
             if (err) {
                 if (err.code === 11000) {
                     //req.flash('errors', { msg: 'The email address you have entered is already associated with an account.' });
@@ -238,7 +254,7 @@ exports.postUpdateProfile = (req, res, next) => {
                 return next(err);
             }
             //req.flash('success', { msg: 'Profile information has been updated.' });
-            res.json({"error":"","errno":"200","data":""});
+            res.json({"error":"","errno":"200","data":user.profile});
         });
     });
 };
@@ -265,7 +281,7 @@ exports.postUpdateProfile = (req, res, next) => {
  * GET /account/profile
  * Profile page. ---- return a json format user information.
  */
-exports.getAccount = (req, res) => {
+exports.getbills = (req, res) => {
     // res.render('account/profile', {
     //     title: 'Account Management'
     // });
@@ -273,7 +289,7 @@ exports.getAccount = (req, res) => {
     console.log(req);
         userid = req.session.passport.user;
         console.log(res.sessionID);
-    User.findOne({_id:userid}).populate('course_taken').exec(function (err,user) {
+    User.findOne({_id:userid}).populate('bills').exec(function (err,user) {
         if(err){
             console.log(err);
         }
@@ -297,20 +313,44 @@ exports.getAccount = (req, res) => {
 };
 
 /**
- * POST /account
+ * POST /postbills
  * Profile page. ------change profile info
  */
 
-exports.postAccount = (req, res, next) => {
+exports.postbills = (req, res, next) => {
+
+
+    if(req.session.sign) {
+        console.log(req);
+        userid = req.session.passport.user;
+        console.log(res.sessionID);
+        User.findOne({_id:userid}).populate('bills').exec(function (err,user) {
+            if(err){
+                console.log(err);
+            }
+            if(!user){
+                //return res.redirect('/signup');
+                // if the account is not exsit, return back to the signin page
+                return res.json({"error":"account not exist","errno":"404","data":""});
+            }
+            else{
+                return res.json({"error":"","errno":"200","data":{'profile':user.profile,"sessionId":req.sessionID}});
+            }
+
+        });
+        //res.redirect('/account/profile/:' + req.sessionID);
+    }
+    else{
+        console.log('sign in required.');
+        res.json({"error":"sign in required.","errno":"401","data":""});
+        //res.send(302,'signin required.')
+    }
 
 
 
 
 
-
-
-
-}
+};
 
 // logout
 
