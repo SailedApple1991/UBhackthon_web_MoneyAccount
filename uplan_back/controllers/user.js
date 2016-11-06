@@ -233,11 +233,12 @@ exports.postUpdateProfile = (req, res, next) => {
         console.log(req.body.expense.length);
         var expense = req.body.expense;
         for(var i = 0;i<expense.length;i++){
-            var temp = user.profile.bills.expense
+            var temp = user.profile.bills.expense;
             console.log(expense[i].Name)
             temp1 = {'Name':'','money':''};
             temp1.Name = expense[i].Name;
             temp1.money = expense[i].money;
+            console.log(temp)
             temp.push(temp1)
         }
 

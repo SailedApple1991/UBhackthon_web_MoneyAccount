@@ -24,7 +24,7 @@ var UserSchema = new mongoose.Schema({
     email:  { type: String, unique: true },
     gender: { type: String, default: '' },
     profile:{
-
+        event:String,
         name:{type: String
         },
         bills:{event: String,
