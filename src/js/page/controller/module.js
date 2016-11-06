@@ -23,7 +23,7 @@ define(function(require, exports, module){
         // require.async( target , function( index ){
         //     index.init();
         // });
-        require.async( tabMap["flow"] , function( index ){
+        require.async( tabMap["mainpage"] , function( index ){
             index.init(username);
         });
         $('#logout').click(function () {

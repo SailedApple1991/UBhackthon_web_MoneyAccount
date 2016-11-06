@@ -1,8 +1,15 @@
 .main_container {
-    width:61.8%;
-    float: left;
+    padding-top: 5%;
+    height: 90%;
+    margin: auto;
+}
+.main-area{
+    padding: 20px;
+    background-color: #fff;
+    width: 90%;
+    margin: auto;
     border-radius: 6px;
-    margin-left: 1%;
+    /* border-radius: 6px; */
 }
 .sub_box{
     border-radius: 6px;
@@ -125,13 +132,6 @@
 }
 .subtagTable th{
     border: 1px solid #ddd;
-}
-.sublist_main{
-  overflow-x: hidden;
-  margin-left: 1%;
-  color: #ffffff;
-  width:98%;
-  height:98%;
 }
 ::-webkit-scrollbar {
     width: 5px;

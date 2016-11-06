@@ -1,12 +1,6 @@
-/**
- *	config.js
- *	author：liamhuang
- *	date：20150720
- *
- **/
 define("page/controller/config", [], function(require, exports, module) {
     exports.map = {
-        flow: "page/flow/index"
+        mainpage: "page/mainpage/index"
     };
 });
 
@@ -34,7 +28,7 @@ define("page/controller/module", [ "page/controller/config", "lib/jquery" ], fun
         // require.async( target , function( index ){
         //     index.init();
         // });
-        require.async(tabMap["flow"], function(index) {
+        require.async(tabMap["mainpage"], function(index) {
             index.init(username);
         });
         $("#logout").click(function() {});
@@ -98,6 +92,134 @@ define("page/login/index", [ "lib/jquery", "util/tpl", "util/util", "net/login",
                 var action = actionList[actionName];
                 var tar = this;
                 if ($.isFunction(action)) action(tar);
+            }
+        });
+    };
+});
+
+/**
+ * Created by gmyth on 16/11/5.
+ */
+define("page/mainpage/config", [], function(require, exports, module) {
+    exports.data = [ {
+        name: "john",
+        dstname: [ "peter", "cindy", "dave" ],
+        num: [ "-1", "-3", "-4" ]
+    }, {
+        name: "peter",
+        dstname: [ "john", "cindy", "dave" ],
+        num: [ "-2", "-4", "-5" ]
+    }, {
+        name: "cindy",
+        dstname: [ "john", "cindy", "dave" ],
+        num: [ "1", "-2", "-4" ]
+    } ];
+});
+
+/**
+ * Created by Haoyu Guo on 2016/10/25.
+ */
+define("page/mainpage/index", [ "util/count_num", "lib/jquery", "util/tpl" ], function(require, exports, module) {
+    //var config    = require("page/mainpage/config").data;
+    var counter = require("util/count_num");
+    var $ = require("lib/jquery");
+    var tpl = require("util/tpl");
+    var config;
+    var curdata;
+    var current = "";
+    var tmpl = {
+        main: '    <div class="main-area">    <h4>Current Bill</h4>        <form class="form-horizontal">            <div class="form-group">                <label class="col-sm-1 control-label" style="width: 10px;">Hi,</label>                <div class="col-sm-10">                    <select class="form-control" id="sel-name" style="width: 160px">                        <%for(var i=0,item;item = nlist[i];i++){%>                        <option name="<%=item.name%>"><%=item.name%></option>                        <%}%>                    </select>                </div>            </div>        </form>        <hr>    <div id="table-data"></div>    </div>    <button type="button" class="btn btn-lg btn-success" style="float: right; margin-top: 20px; margin-right: 6%;"data-toggle="modal" data-target="#myModal">Add Some!</button>    <button type="button" class="btn btn-lg btn-warning" style="float: right; margin-top: 20px; margin-right: 6%;"data-toggle="modal" data-target="#myModal1">Create New Bill!</button>    <div class="modal fade" id="myModal" role="dialog">        <div class="modal-dialog">            <!-- Modal content-->            <div class="modal-content">                <div class="modal-header">                    <button type="button" class="close" data-dismiss="modal">&times;</button>                    <h4 class="modal-title">FInancial Status</h4>                </div>                <div class="modal-body">                    <p>Client Name</p >                    <input type="text" name="bookId" id="client" value=""/>                    <p></p >                    <p>Money spent</p >                    <input type="text" name="bookId" id="money_spent" value=""/>                    <p></p >                    <p>For What</p>        <textarea rows="4" cols="50" id="goals">        </textarea>                </div>                <div class="modal-footer">                    <button type="button" class="btn btn-default" data-dismiss="modal">Confirm</button>                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                </div>            </div>        </div>    </div>    <!-- Modal -->    <div class="modal fade" id="myModal1" role="dialog">        <div class="modal-dialog">            <!-- Modal content-->            <div class="modal-content">                <div class="modal-header">                    <button type="button" class="close" data-dismiss="modal">&times;</button>                    <h4 class="modal-title"><font size="3">Type Of Bill</font></h4>                </div>                <div class="modal-body">                    <p><font size="3">Name <font size="1">(Please use comma to separate each name)</font></font></p>                    <input type="text" name="bookId" id="name" value="">                </div>                <div class="modal-footer">                    <button type="button" class="btn btn-default" data-dismiss="modal" data-action="new_bill">Confirm</button>                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                </div>            </div>        </div>    </div>',
+        table: '    <table class="table table-hover " style="padding: 20px;">        <thead>        <tr>            <th style="text-align: center">Name</th>            <th style="text-align: center">Event</th>            <th style="text-align: center">Sum</th>        </tr>        </thead>        <tbody>        <%for(var i=0,item;item = DATA[i];i++){%>        <tr>            <td><%=item%></td>            <td>Dining</td>            <td><%=numList[i]%></td>        </tr>        <%}%>        </tbody>    </table>'
+    };
+    exports.init = function(username) {
+        current = username;
+        config = counter.get(counter.getdata(current));
+        curdata = counter.getdata();
+        $(".main_container").html(tpl.get(tmpl.main, {
+            nlist: config
+        }));
+        $("#table-data").html(tpl.get(tmpl.table, {
+            DATA: config[0].dstname,
+            numList: config[0].num
+        }));
+        _bindEvent();
+    };
+    /*the combination of needed action function*/
+    var actionList = {
+        new_bill: function() {
+            var name = $("#name").val();
+            var namelist = [];
+            while (name.indexOf(",") != -1) {
+                var temp = name.substring(0, name.indexOf(","));
+                namelist.push(temp);
+                name = name.substring(name.indexOf(",") + 1, name.length);
+            }
+            if (name != "") {
+                namelist.push(name);
+            }
+            var dataobj = [];
+            for (var i = 0; i < namelist.length; i++) {
+                var obj = {
+                    Name: namelist[i],
+                    money: "0"
+                };
+                dataobj.push(obj);
+            }
+        },
+        add_bill: function() {
+            var pattern = /^[0-9.]+$/;
+            /*No Underscore at first and last*/
+            var goals = $("#goals").val();
+            var user = $("#client").val();
+            var count = $("#money_spent").val();
+            if (pattern.test(count)) {
+                for (var i = 0; i < curdata.length; i++) {
+                    if (curdata[i].Name == user) {
+                        curdata[i].money = (parseFloat(curdata[i].money) + parseFloat(count)).toString();
+                    }
+                }
+                //cgi here
+                //.........
+                config = counter.get(counter.getdata(current));
+                curdata = counter.getdata();
+                $(".main_container").html(tpl.get(tmpl.main, {
+                    nlist: config
+                }));
+                $("#table-data").html(tpl.get(tmpl.table, {
+                    DATA: config[0].dstname,
+                    numList: config[0].num
+                }));
+            } else {
+                alert("wrong format number!");
+            }
+        }
+    };
+    var dataparse = function(data, index) {
+        return data[index].dstname;
+    };
+    var numparse = function(data, index) {
+        return data[index].num;
+    };
+    var _bindEvent = function() {
+        main_container = $(".main_container");
+        main_container.on("click", "[data-action]", function() {
+            if ($(this).attr("disabled") != "disabled") {
+                var actionName = $(this).data("action");
+                var action = actionList[actionName];
+                var tar = this;
+                if ($.isFunction(action)) action(tar);
+            }
+        });
+        main_container.on("change", "#sel-name", function() {
+            var val = $(this).val();
+            for (var i = 0, item; item = config[i]; i++) {
+                if (item.name == val) {
+                    $("#table-data").html(tpl.get(tmpl.table, {
+                        DATA: dataparse(config, i),
+                        numList: numparse(config, i)
+                    }));
+                    break;
+                }
             }
         });
     };
