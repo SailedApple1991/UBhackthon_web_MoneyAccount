@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18363a29-a79d-4a73-8606-76479f95645b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/page/mainpage/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/page/mainpage/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/page/mainpage/index.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/util/count_num.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/css/style.css" afterPath="$PROJECT_DIR$/dest/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/index.html" afterPath="$PROJECT_DIR$/dest/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/js/lib.js" afterPath="$PROJECT_DIR$/dest/js/lib.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/js/page.js" afterPath="$PROJECT_DIR$/dest/js/page.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/js/page/controller/config.js" afterPath="$PROJECT_DIR$/dest/js/page/controller/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/js/page/controller/module.js" afterPath="$PROJECT_DIR$/dest/js/page/controller/module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/style.css" afterPath="$PROJECT_DIR$/src/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/index/index.html" afterPath="$PROJECT_DIR$/src/html/index/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/page/controller/config.js" afterPath="$PROJECT_DIR$/src/js/page/controller/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/page/controller/module.js" afterPath="$PROJECT_DIR$/src/js/page/controller/module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dest/js/page/mainpage/index.tpl" afterPath="$PROJECT_DIR$/dest/js/page/mainpage/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/page/mainpage/index.tpl" afterPath="$PROJECT_DIR$/src/js/page/mainpage/index.tpl" />
     </list>
     <ignored path="UBhackthon_web_MoneyAccount.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,7 +60,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="timeparser.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="timeparser.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/util/timeparser.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-440">
@@ -81,16 +70,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.tpl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.tpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/page/mainpage/index.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="39" column="46" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="46" />
+            <state relative-caret-position="243">
+              <caret line="65" column="56" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#1;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#0;n#div#2;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#template#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#template#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#template#1;n#!!top" expanded="true" />
@@ -169,9 +159,9 @@
         <option value="$PROJECT_DIR$/dest/index.html" />
         <option value="$PROJECT_DIR$/src/css/style.css" />
         <option value="$PROJECT_DIR$/src/js/page/mainpage/config.js" />
-        <option value="$PROJECT_DIR$/src/js/page/mainpage/index.tpl" />
         <option value="$PROJECT_DIR$/src/js/util/count_num.js" />
         <option value="$PROJECT_DIR$/src/js/page/mainpage/index.js" />
+        <option value="$PROJECT_DIR$/src/js/page/mainpage/index.tpl" />
       </list>
     </option>
   </component>
@@ -496,12 +486,12 @@
       <workItem from="1478376263325" duration="796000" />
       <workItem from="1478377069405" duration="88000" />
       <workItem from="1478378716016" duration="3099000" />
-      <workItem from="1478383332926" duration="19161000" />
+      <workItem from="1478383332926" duration="19453000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23144000" />
+    <option name="totallyTimeSpent" value="23436000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -956,23 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/page/mainpage/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="39" column="46" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="46" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#template#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#template#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#template#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#template#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/util/count_num.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -983,10 +956,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/page/mainpage/index.js">
+    <entry file="file://$PROJECT_DIR$/src/js/util/timeparser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
+        <state relative-caret-position="-440">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1002,11 +975,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/util/timeparser.js">
+    <entry file="file://$PROJECT_DIR$/src/js/page/mainpage/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-440">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        <state relative-caret-position="1050">
+          <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/page/mainpage/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="65" column="56" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#0;n#div#2;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#template#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#template#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#template#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#template#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

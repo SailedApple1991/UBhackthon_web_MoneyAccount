@@ -63,6 +63,7 @@
                 <div class="modal-body">
                     <p><font size="3">Name <font size="1">(Please use comma to separate each name)</font></font></p>
                     <input type="text" name="bookId" id="name" value="">
+                    <p style="color: #e74c3c;">Current bill will be overwritten</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" data-action="new_bill">Confirm</button>
